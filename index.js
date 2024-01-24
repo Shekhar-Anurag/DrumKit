@@ -13,13 +13,15 @@ var len = document.querySelectorAll(".drum").length;
 for(var i =0;i<len;i++){
 
     document.querySelectorAll(".drum")[i].addEventListener("click",function(){
-        playAudio(this.innerHTML)
+        playAudio(this.innerHTML);
+        buttonAnimation(this.innerHTML);
         
     });
 }
 
 document.addEventListener("keypress",function(event){
-    playAudio(event.key)
+    playAudio(event.key);
+    buttonAnimation(this.innerHTML);
 });
 
 function playAudio(key){
@@ -49,7 +51,13 @@ function playAudio(key){
     }
 }
 
-
+function buttonAnimation (key){
+    document.querySelector("."+key).classList.add("pressed");
+    setTimeout(function(){
+        document.querySelector("."+key).classList.remove("pressed");
+    },250)
+    
+}
 
 
 
